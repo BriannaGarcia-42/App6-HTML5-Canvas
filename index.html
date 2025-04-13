@@ -7,7 +7,7 @@ THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
  
 Authors in chronological order of contribution:
 Tim Riedel
-Author 2
+Brianna Garcia
  
 Further Information:
 http://cns.utexas.edu/fri
@@ -17,10 +17,10 @@ Timothy Riedel
 triedel@utexas.edu
  
 Brief Description of Goal of Code:
-blah, blah, blah,
+We will create an app for users to take or upload pictures from their device and onto canvas. This will then analyze the photo to check for blue light and then transfer it to another canvas.
  
 Known Issues:
-blah, blah, blah, blah
+No Known Issues.
 https://www.w3schools.com/w3css/default.asp
 https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
 -->
@@ -38,6 +38,46 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 var docMod = document.lastModified; // loads last modified time stamp into docMod variable
 alert("This file last modified " + docMod); // generates alert box with time stamp. If annoying, comment out this entire line.
 console.log("This file last modified " + docMod); // generates message in javaScript console (found in developers tools) with time stamp. 
+
+
+
+//This is to add a rectangle
+function drawRect(){
+	var rectCanvas = document.getElementById("myCanvas"); //This variable displays in onto canvas
+	var rectContext = rectCanvas.getContext("2d"); //This variable is what sets the rectangle conditions
+	rectContext.fillRect(100, 150, 150, 75); // These are the rectangle conditions
+}
+
+
+//This will be my function for adding my name
+function addName(){
+	var c = document.getElementById("myCanvas"); //This variable will display onto canvas
+	var ctx = c.getContext("2d"); //This variable will set my name conditions
+	ctx.font = "24px Arial"; //This is the font of the text
+	ctx.fillText("Brianna Garcia", 25,60) //These are the conditions for my name to appear
+}
+
+
+//This will be my function for erasing the screen
+function erase(){
+	var eraseCanvas = document.getElementById("myCanvas"); //This variable will display it on canvas
+	eraseCanvas.width = eraseCanvas.width;
+}
+
+
+//This will be the function for the dog image
+function addImage(){
+	var img = new Image(); //This is the image variable
+	//This will be the variable to pull the image
+	img.src = https://imagekit.io/tools/asset-public-link?detail=%7B%22name%22%3A%22dog.jpg%22%2C%22type%22%3A%22image%2Fjpeg%22%2C%22signedurl_expire%22%3A%222028-04-12T00%3A19%3A50.698Z%22%2C%22signedUrl%22%3A%22https%3A%2F%2Fmedia-hosting.imagekit.io%2Fd738fe95f30347fd%2Fdog.jpg%3FExpires%3D1839111591%26Key-Pair-Id%3DK2ZIVPTIP2VGHC%26Signature%3DxhI~YaeA3~Xnyrn0~9O~6Aaxs8gGZtg904874q6sRptjNDY5d01bLBe~GMwEEtDYUsPYkONjzOfMaysL42EKyjPjmM~G6SSqxuLjRgkFZ6Lk9J4d9pVzSr8fM4afQxIZ9t6ESyCSA9YqBD21osCgaBWpTQJyzkMLSoNlyZjv-FJrRrH18l-DNXm81BCEVrSJU1HAKLueXyxwQ82CS5kmSAe5Q7xrxu2Pipi1m0G30Bvgns-OLVC~Qx1vx2XaWr1FcNVRCcViX7Ej~o3sXxjAUWFYMoYxHsnRtRZ5olSu40daJzJ7u-mXlIQcrlb8kMj7O6IvlTCzGukoPBKJj6Ptyg__%22%7D
+	img.addEventListener('load', function() {	
+	var canvas = document.getElementById('myCanvas'); //This variable will display onto canvas
+	var ctx = canvas.getContext('2d'); //This variable to set image conditions 		     
+	ctx.drawImage(img, 0, 0); }, false);			     
+	}		     
+			     
+
+
 </script>
 
 
@@ -68,11 +108,45 @@ console.log("This file last modified " + docMod); // generates message in javaSc
 </div>
 	
 <div id="content" class="w3-container">
-	<p>Content goes here.</p>
+	<p>Canvas Art.</p>
+	<a href="#one" class="w3-btn w3-green w3-round"> Start Drawing </a>
 		
 	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
  	
 	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
+
+</div>
+
+	<div class="page" id="one">
+	<div id="header" class="w3-container w3-flat-carrot"> 
+</div>	
+	
+	<div id="content" class="w3-container"> 
+	<p>You may begin drawing!</p>
+
+	<!--These are canvas conditions with sizing-->
+	<!--I added spacing between all the buttons for easy viewing-->
+
+	<canvas id="myCanvas" width="700" height="375" style="border:1px solid #000000;">
+	</canvas>
+	<p> </p>
+
+	<!--This button is for drawing the rectangle-->	
+	<a onclick= "drawRect();" class="w3-btn w3-green"> Draw Rectangle </a>
+	<p> </p>
+		
+	<!--This button is for adding my name-->
+	<a onclick= addName();"class="w3-btn w3-green"> Add Name </a>
+	<p> </p>
+
+	<!--This button is for adding an image-->
+	<a onclick = "addImage();" class=w3-green"> Add Image </a>
+	<p></p>
+
+	<!--This button is for earasing the canvas-->
+	<a onclick= "erase();" class="w3-btn w3-red"> Erase Canvas </a>
+
+
 
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>DIY!</p>
